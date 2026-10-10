@@ -85,9 +85,18 @@ export function Process() {
               ))}
             </ol>
           </div>
+
+          <div className="fatos">
+            <p className="fatos-titulo">{process.commitments.title}</p>
+            <ul>
+              {process.commitments.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
         </div>
 
-        <div className="trk" role="img" aria-label={process.tracker.ariaLabel}>
+        <div className="trk">
           <div className="trk-topo">
             <span>{process.tracker.title}</span>
             <span>

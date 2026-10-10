@@ -377,6 +377,17 @@ h1, h2, h3, h4 { font-family: var(--f-display); font-weight: 700; color: var(--i
 .projeto dt { font-weight: 600; font-size: 0.95rem; }
 .projeto dd { margin: 2px 0 0; color: var(--muted); font-size: 0.94rem; }
 
+/* Chamada para o WhatsApp entre seções */
+.cta-meio {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 16px 24px; margin-top: clamp(40px, 5vw, 56px); padding: clamp(22px, 3vw, 32px);
+  border: 1px solid var(--line); border-radius: 22px; background: var(--surface);
+}
+.cta-meio p {
+  font-family: var(--f-display); font-weight: 700; font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  letter-spacing: -0.02em; max-width: 32em;
+}
+
 .web { background: #FFFFFF; color: #111216; overflow: hidden; border: 1px solid rgba(12, 12, 14, 0.08); }
 .web-barra { display: flex; gap: 6px; padding: 12px 14px; border-bottom: 1px solid #ECEAE4; }
 .web-barra i { width: 8px; height: 8px; border-radius: 50%; background: #D8D5CD; }
@@ -424,6 +435,16 @@ h1, h2, h3, h4 { font-family: var(--f-display); font-weight: 700; color: var(--i
 .passo.ativo .bolha, .passo.feito .bolha { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
 .passo h3 { font-size: 1.45rem; letter-spacing: -0.025em; padding-top: 6px; }
 .passo p { grid-column: 2; color: var(--muted); }
+
+/* Lista do que o cliente sabe antes de começar */
+.fatos { margin-top: 40px; max-width: 30em; }
+.fatos-titulo { font-family: var(--f-display); font-weight: 700; font-size: 1.1rem; }
+.fatos ul { list-style: none; padding: 0; margin: 12px 0 0; display: grid; gap: 8px; color: var(--muted); }
+.fatos li { position: relative; padding-left: 22px; }
+.fatos li::before {
+  content: ""; position: absolute; left: 0; top: 0.6em; width: 8px; height: 8px;
+  border-radius: 50%; background: var(--accent);
+}
 
 .trk { background: var(--surface); border: 1px solid var(--line); border-radius: 24px; overflow: hidden; box-shadow: var(--shadow); }
 @media (min-width: 960px) { .trk { position: sticky; top: 120px; } }

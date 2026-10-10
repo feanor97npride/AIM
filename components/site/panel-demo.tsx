@@ -80,7 +80,7 @@ export function PanelDemo() {
   }, [])
 
   return (
-    <div ref={ref} className="painel" role="img" aria-label={panel.ariaLabel}>
+    <div ref={ref} className="painel">
       <div className="painel-barra">
         <span className="semaforo">
           <i />

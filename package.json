@@ -6,7 +6,8 @@
     "build": "next build --webpack",
     "dev": "next dev",
     "lint": "eslint .",
-    "start": "next start"
+    "start": "next start",
+    "check:publicacao": "node scripts/check-publicacao.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

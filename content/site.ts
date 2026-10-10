@@ -50,8 +50,6 @@ export const site = {
   },
 
   panel: {
-    ariaLabel:
-      "Demonstração animada: o título é editado no painel, aparece na prévia e é publicado.",
     barTitle: "Painel de conteúdo",
     demoLabel: "Demonstração",
     menu: ["Página inicial", "Serviços", "Projetos", "Identidade e contato", "Publicação"],
@@ -70,8 +68,8 @@ export const site = {
   numbers: [
     { to: 3, label: "frentes de atuação" },
     { to: 4, label: "etapas, da conversa à entrega" },
-    { to: 5, label: "áreas que você edita no painel" },
-    { to: 2, label: "telas na prévia: celular e desktop" },
+    { to: 1, label: "conversa inicial antes de definir o escopo" },
+    { to: 2, label: "canais de contato: WhatsApp e e-mail" },
   ],
 
   services: {
@@ -79,6 +77,11 @@ export const site = {
     title: "Três frentes para o seu negócio aparecer e funcionar.",
     description:
       "Cada oferta mostra o resultado esperado e o que fica de fora, para a escolha ficar clara desde o início.",
+    cta: {
+      text: "Não sabe qual frente faz sentido para o seu caso? Conte sua situação e a gente indica o caminho.",
+      label: "Conversar sobre o meu caso",
+      message: "Olá! Não sei qual serviço é o melhor para o meu caso. Podemos conversar?",
+    },
     items: [
       {
         title: "Sites e landing pages",
@@ -119,10 +122,7 @@ export const site = {
   channels: {
     title: "Todos os seus canais levam à mesma conversa.",
     label: "Canais de contato e peças da presença digital",
-    rows: [
-      ["Site", "Landing page", "WhatsApp", "E-mail", "Instagram", "LinkedIn", "Painel de edição", "Política de privacidade"],
-      ["Textos", "Imagens", "Botões", "Links", "Datas", "Seções", "Cores aprovadas", "Logo"],
-    ],
+    rows: [["Site institucional", "Landing page", "WhatsApp", "E-mail"]],
   },
 
   // Exemplos demonstrativos. Não são clientes reais: só trocar por casos reais, com autorização.
@@ -132,6 +132,11 @@ export const site = {
     description:
       "Exemplos demonstrativos, com o problema, a solução aplicada e o que foi entregue.",
     tag: "Exemplo demonstrativo",
+    cta: {
+      text: "Quer algo parecido com um desses exemplos? Conte o que você precisa resolver.",
+      label: "Falar sobre um projeto parecido",
+      message: "Olá! Vi os exemplos no site e quero conversar sobre um projeto parecido.",
+    },
     items: [
       {
         title: "Página de captação para consultório",
@@ -178,9 +183,17 @@ export const site = {
     description:
       "Em cada etapa fica claro o que acontece e o que depende de você. Role a página e veja, no exemplo de acompanhamento, como o andamento muda.",
     stepLabel: "Etapa",
+    // PENDENTE: prazo, valor e revisões são compromissos comerciais. Confirmar com o dono do negócio antes de publicar.
+    commitments: {
+      title: "Antes de começar, você sabe:",
+      items: [
+        "o que entra na primeira versão e o que fica para depois;",
+        "o prazo, combinado no escopo;",
+        "o valor, informado por escrito antes do início;",
+        "quantas revisões estão incluídas.",
+      ],
+    },
     tracker: {
-      ariaLabel:
-        "Exemplo de acompanhamento: o status de cada etapa muda conforme o projeto avança.",
       title: "acompanhamento",
       note: "# exemplo de acompanhamento de um projeto",
       statuses: ["concluída", "em andamento", "a fazer"],

@@ -1,6 +1,7 @@
 import { Reveal } from "@/components/reveal"
 import { SplitHeading } from "@/components/split-heading"
 import { site, type ServiceVisual } from "@/content/site"
+import { whatsappUrl } from "@/lib/whatsapp"
 import { cn } from "@/lib/utils"
 
 function Visual({ visual }: { visual: ServiceVisual }) {
@@ -85,6 +86,13 @@ export function Services() {
               </dl>
             </Reveal>
           ))}
+        </div>
+
+        <div className="cta-meio">
+          <p>{services.cta.text}</p>
+          <a className="btn btn-primario" href={whatsappUrl(services.cta.message)}>
+            {services.cta.label}
+          </a>
         </div>
 
         <SplitHeading as="h3" className="canais-titulo">
