@@ -145,7 +145,7 @@ export const site = {
         delivery: "Site responsivo, com o contato testado no celular.",
         visual: {
           type: "hero",
-          color: "#E0492C",
+          color: "#C2410C", // laranja da marca: 5,2:1 com texto branco
           headline: "Atendimento com horário marcado.",
           button: "Agendar pelo WhatsApp",
         } satisfies ProjectVisual,
