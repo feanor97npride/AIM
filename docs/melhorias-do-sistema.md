@@ -23,3 +23,9 @@ Formato de cada entrada:
 - Ganho: um commit com nome de modelo passa a ser recusado antes do push, em vez de depender de quem escreve a mensagem. Hoje a regra do kit não tem checagem automática.
 - Esforço: P (horas)
 - Status: aberta
+
+## 2026-10-10 · Atualização da documentação com o estado real (6dd7b29)
+- Sugestão: criar um script `pnpm docs:check` que confere, nas docs, os caminhos de arquivo e os comandos `pnpm` citados, e falha se algum não existir no `package.json` ou no repositório.
+- Ganho: nesta entrega, a documentação citava uma pasta (`components/ui`) e um arquivo (`components/section-heading.tsx`) que já tinham sido removidos. Um script assim pega essa divergência antes do envio, em vez de depender de uma busca manual.
+- Esforço: P (horas)
+- Status: aberta
