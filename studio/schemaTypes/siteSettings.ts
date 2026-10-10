@@ -47,6 +47,17 @@ function lista(name: string, title: string, quantidade: number, max: number, des
   })
 }
 
+// Lista de textos com quantidade entre um mínimo e um máximo.
+function listaEntre(name: string, title: string, minimo: number, maximo: number, max: number) {
+  return defineField({
+    name,
+    title,
+    type: 'array',
+    of: [{type: 'string', validation: (rule) => rule.required().max(max)}],
+    validation: (rule) => rule.min(minimo).max(maximo),
+  })
+}
+
 // Lista de cores hex com quantidade fixa.
 function listaDeCores(name: string, title: string, quantidade: number) {
   return defineField({
@@ -339,8 +350,7 @@ export const siteSettings = defineType({
       fields: [
         texto('title', 'Título', 90),
         texto('label', 'Texto de apoio (leitores de tela)', 60),
-        lista('row1', 'Primeira faixa de itens', 8, 30),
-        lista('row2', 'Segunda faixa de itens', 8, 30),
+        listaEntre('row', 'Itens da faixa de canais (de 1 a 8)', 1, 8, 30),
       ],
     }),
 
