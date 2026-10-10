@@ -3,6 +3,11 @@
 # dependencies
 /node_modules
 
+# Studio da Sanity (dependências, build e cache próprios)
+/studio/node_modules
+/studio/dist
+/studio/.sanity
+
 # next.js
 /.next/
 /out/
