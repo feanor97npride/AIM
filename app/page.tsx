@@ -5,19 +5,22 @@ import { Hero } from "@/components/site/hero"
 import { Process } from "@/components/site/process"
 import { Projects } from "@/components/site/projects"
 import { Services } from "@/components/site/services"
+import { getSiteContent } from "@/lib/site-content"
 
-export default function Home() {
+export default async function Home() {
+  const site = await getSiteContent()
+
   return (
     <>
-      <Header />
+      <Header site={site} />
       <main id="principal">
-        <Hero />
-        <Services />
-        <Projects />
-        <Process />
-        <Contact />
+        <Hero site={site} />
+        <Services site={site} />
+        <Projects site={site} />
+        <Process site={site} />
+        <Contact site={site} />
       </main>
-      <Footer />
+      <Footer site={site} />
     </>
   )
 }

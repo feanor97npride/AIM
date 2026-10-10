@@ -4,14 +4,14 @@ import { useEffect, useRef, useState } from "react"
 
 import { Reveal } from "@/components/reveal"
 import { SplitHeading } from "@/components/split-heading"
-import { site } from "@/content/site"
+import type { Site } from "@/lib/site-content"
 import { cn } from "@/lib/utils"
 
 const STATUS_CLASS = ["ok", "now", "todo"] as const
 
 // Etapas do processo. A linha se preenche e o painel de exemplo muda de
 // status conforme a rolagem passa por cada etapa.
-export function Process() {
+export function Process({ site }: { site: Site }) {
   const { process } = site
   const listRef = useRef<HTMLDivElement>(null)
   const stepRefs = useRef<Array<HTMLLIElement | null>>([])
@@ -72,7 +72,7 @@ export function Process() {
             <ol>
               {process.steps.map((step, i) => (
                 <li
-                  key={step.key}
+                  key={step.title}
                   ref={(el) => {
                     stepRefs.current[i] = el
                   }}
@@ -111,8 +111,8 @@ export function Process() {
             {process.steps.map((step, i) => {
               const state = i < active ? 0 : i === active ? 1 : 2
               return (
-                <div key={step.key} className="trk-lin">
-                  <span>{step.key}</span>
+                <div key={step.title} className="trk-lin">
+                  <span>{step.trackerLabel}</span>
                   <span className={cn("s", STATUS_CLASS[state])}>
                     {process.tracker.statuses[state]}
                   </span>

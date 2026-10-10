@@ -1,15 +1,20 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 
-import { site } from "@/content/site"
+import { getSiteContent } from "@/lib/site-content"
 
-export const metadata: Metadata = {
-  title: `Política de privacidade | ${site.name}`,
+export async function generateMetadata(): Promise<Metadata> {
+  const site = await getSiteContent()
+  return {
+    title: `Política de privacidade | ${site.name}`,
+  }
 }
 
 // Rascunho provisório. O texto final depende da coleta real de dados do site
 // (formulários e rastreamento ainda não existem no MVP).
-export default function PrivacyPage() {
+export default async function PrivacyPage() {
+  const site = await getSiteContent()
+
   return (
     <main id="principal" className="wrap pagina">
       <h1>Política de privacidade</h1>

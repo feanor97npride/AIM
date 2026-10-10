@@ -2,16 +2,32 @@
 
 import { useEffect, useRef, useState } from "react"
 
-import { site } from "@/content/site"
 import { cn } from "@/lib/utils"
 
-const TEXT = site.hero.title
+// Texto próprio da demonstração (decisão D7): não acompanha o título editável.
+const TEXT = "Presença digital que gera conversas."
+
+// Textos fixos do painel de exemplo (decisão D7).
+const panel = {
+  barTitle: "Painel de conteúdo",
+  demoLabel: "Demonstração",
+  menu: ["Página inicial", "Serviços", "Projetos", "Identidade e contato", "Publicação"],
+  heading: "Página inicial",
+  draft: "Rascunho não publicado",
+  published: "Publicado",
+  titleField: "Título",
+  ctaField: "Texto e destino do botão principal",
+  ctaValue: "Conversar no WhatsApp",
+  preview: "Ver prévia",
+  publish: "Publicar",
+  live: "No ar",
+  miniButton: "Falar no WhatsApp",
+}
 
 // Demonstração animada do painel de conteúdo: digita o título, confere a
 // prévia e publica. Começa já no estado final, que é o que aparece sem
 // JavaScript ou com movimento reduzido.
 export function PanelDemo() {
-  const { panel } = site
   const ref = useRef<HTMLDivElement>(null)
   const [typed, setTyped] = useState(TEXT)
   const [published, setPublished] = useState(true)

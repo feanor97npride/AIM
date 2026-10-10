@@ -1,6 +1,6 @@
 import { Reveal } from "@/components/reveal"
 import { SplitHeading } from "@/components/split-heading"
-import { site, type ProjectVisual } from "@/content/site"
+import type { ProjectVisual, Site } from "@/lib/site-content"
 import { whatsappUrl } from "@/lib/whatsapp"
 import type { CSSProperties } from "react"
 
@@ -59,7 +59,7 @@ function Visual({ visual }: { visual: ProjectVisual }) {
   )
 }
 
-export function Projects() {
+export function Projects({ site }: { site: Site }) {
   const { projects } = site
 
   return (
@@ -78,7 +78,7 @@ export function Projects() {
                 <Visual visual={item.visual} />
               </div>
               <div className="projeto-corpo">
-                <span className="tag">{projects.tag}</span>
+                {projects.isDemonstrative && <span className="tag">{projects.tag}</span>}
                 <h3>{item.title}</h3>
                 <dl>
                   <div>
@@ -101,7 +101,7 @@ export function Projects() {
 
         <div className="cta-meio">
           <p>{projects.cta.text}</p>
-          <a className="btn btn-primario" href={whatsappUrl(projects.cta.message)}>
+          <a className="btn btn-primario" href={whatsappUrl(site.whatsapp.number, projects.cta.message)}>
             {projects.cta.label}
           </a>
         </div>

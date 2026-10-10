@@ -1,7 +1,7 @@
-import { site } from "@/content/site"
+import type { Site } from "@/lib/site-content"
 import { whatsappUrl } from "@/lib/whatsapp"
 
-export function Footer() {
+export function Footer({ site }: { site: Site }) {
   const { footer, nav, socials, email, company } = site
 
   return (
@@ -29,7 +29,7 @@ export function Footer() {
             <h4>{footer.contactTitle}</h4>
             <ul>
               <li>
-                <a href={whatsappUrl()}>WhatsApp</a>
+                <a href={whatsappUrl(site.whatsapp.number, site.whatsapp.message)}>WhatsApp</a>
               </li>
               <li>
                 <a href={`mailto:${email}`}>E-mail</a>

@@ -1,6 +1,6 @@
 import { Reveal } from "@/components/reveal"
 import { SplitHeading } from "@/components/split-heading"
-import { site, type ServiceVisual } from "@/content/site"
+import type { ServiceVisual, Site } from "@/lib/site-content"
 import { whatsappUrl } from "@/lib/whatsapp"
 import { cn } from "@/lib/utils"
 
@@ -48,7 +48,7 @@ function Visual({ visual }: { visual: ServiceVisual }) {
   )
 }
 
-export function Services() {
+export function Services({ site }: { site: Site }) {
   const { services, channels } = site
 
   return (
@@ -90,7 +90,7 @@ export function Services() {
 
         <div className="cta-meio">
           <p>{services.cta.text}</p>
-          <a className="btn btn-primario" href={whatsappUrl(services.cta.message)}>
+          <a className="btn btn-primario" href={whatsappUrl(site.whatsapp.number, services.cta.message)}>
             {services.cta.label}
           </a>
         </div>

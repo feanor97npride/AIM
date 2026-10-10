@@ -1,11 +1,11 @@
 import { Particles } from "@/components/site/particles"
 import { Reveal } from "@/components/reveal"
 import { SplitHeading } from "@/components/split-heading"
-import { site } from "@/content/site"
+import type { Site } from "@/lib/site-content"
 import { whatsappUrl } from "@/lib/whatsapp"
 
 // Bloco escuro de contraste, com partículas ao fundo.
-export function Contact() {
+export function Contact({ site }: { site: Site }) {
   const { contact, socials, email } = site
 
   return (
@@ -17,7 +17,7 @@ export function Contact() {
           {contact.description}
         </Reveal>
         <div className="acoes">
-          <a className="btn btn-primario" href={whatsappUrl()}>
+          <a className="btn btn-primario" href={whatsappUrl(site.whatsapp.number, site.whatsapp.message)}>
             {contact.primaryCta}
           </a>
           <a className="btn btn-ghost" href={`mailto:${email}`}>

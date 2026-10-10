@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 
-import type { Link } from "@/content/site"
+import type { Link } from "@/lib/site-content"
 
 // Menu principal. Destaca a seção que está no centro da tela.
 export function NavMenu({ items }: { items: Link[] }) {

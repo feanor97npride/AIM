@@ -4,10 +4,10 @@ import { HeroShader } from "@/components/site/hero-shader"
 import { PanelDemo } from "@/components/site/panel-demo"
 import { Reveal } from "@/components/reveal"
 import { SplitHeading } from "@/components/split-heading"
-import { site } from "@/content/site"
+import type { Site } from "@/lib/site-content"
 import { whatsappUrl } from "@/lib/whatsapp"
 
-export function Hero() {
+export function Hero({ site }: { site: Site }) {
   const { hero, numbers } = site
 
   return (
@@ -24,7 +24,7 @@ export function Hero() {
           <SplitHeading as="h1">{hero.title}</SplitHeading>
           <p className="lead">{hero.lead}</p>
           <div className="acoes">
-            <a className="btn btn-primario" href={whatsappUrl()}>
+            <a className="btn btn-primario" href={whatsappUrl(site.whatsapp.number, site.whatsapp.message)}>
               {hero.primaryCta}
             </a>
             <a className="btn btn-ghost" href={hero.secondaryCta.href}>

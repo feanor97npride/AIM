@@ -5,7 +5,7 @@ import { Instrument_Sans, JetBrains_Mono, Schibsted_Grotesk } from "next/font/go
 import "./globals.css"
 import "./landing.css"
 import { ScrollProgress } from "@/components/site/scroll-progress"
-import { site } from "@/content/site"
+import { getSiteContent } from "@/lib/site-content"
 
 // Fontes hospedadas junto com o site: o visitante não faz requisição ao Google.
 const display = Schibsted_Grotesk({
@@ -27,12 +27,15 @@ const mono = JetBrains_Mono({
   display: "swap",
 })
 
-export const metadata: Metadata = {
-  title: site.title,
-  description: site.description,
-  // Prévia: fora da busca até o lançamento. Remover no dia da publicação.
-  robots: { index: false, follow: false },
-  openGraph: { title: site.name, description: site.shareDescription },
+export async function generateMetadata(): Promise<Metadata> {
+  const site = await getSiteContent()
+  return {
+    title: site.title,
+    description: site.description,
+    // Prévia: fora da busca até o lançamento. Remover no dia da publicação.
+    robots: { index: false, follow: false },
+    openGraph: { title: site.name, description: site.shareDescription },
+  }
 }
 
 export const viewport: Viewport = {
