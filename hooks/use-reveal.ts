@@ -2,8 +2,9 @@
 
 import { useEffect, useRef, useState } from "react"
 
-// Diz quando o elemento entrou na tela. Com movimento reduzido ou sem
-// IntersectionObserver, já nasce "visível" para não esconder conteúdo.
+// Diz quando o elemento entrou na tela. A classe "in" só faz diferença quando a
+// página marca "anim" no <html> (ver app/layout.tsx). Com movimento reduzido, o
+// CSS já deixa tudo visível, então não precisa de estado para isso.
 export function useReveal<T extends HTMLElement>() {
   const ref = useRef<T>(null)
   const [on, setOn] = useState(false)
@@ -12,9 +13,8 @@ export function useReveal<T extends HTMLElement>() {
     const el = ref.current
     if (!el) return
 
-    const calmo = window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    if (calmo || !("IntersectionObserver" in window)) {
-      setOn(true)
+    if (!("IntersectionObserver" in window)) {
+      el.classList.add("in")
       return
     }
 

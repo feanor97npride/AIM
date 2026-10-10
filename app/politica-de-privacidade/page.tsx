@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Link from "next/link"
 
 import { site } from "@/content/site"
 
@@ -23,9 +24,9 @@ export default function PrivacyPage() {
         </a>
         .
       </p>
-      <a className="btn btn-primario" href="/">
+      <Link className="btn btn-primario" href="/">
         Voltar para a página inicial
-      </a>
+      </Link>
     </main>
   )
 }
