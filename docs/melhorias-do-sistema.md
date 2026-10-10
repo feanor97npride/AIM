@@ -17,3 +17,9 @@ Formato de cada entrada:
 - Ganho: a regra 9 ("contraste medido com ferramenta, não a olho") passa a ser verificada em segundos antes de cada entrega. Nesta entrega a medição achou 33 reprovações que a leitura visual não pegou.
 - Esforço: P (horas)
 - Status: aberta
+
+## 2026-10-10 · Instalação do kit de processo (59f66a6)
+- Sugestão: implementar o hook `commit-msg` e o script `pnpm release-notes:validate`, que `CONTRIBUTING.md` e o agente `notas-versao` já citam e que hoje não existem. Com isso, a recusa de `Co-Authored-By` e de nome de modelo deixa de depender só de conduta.
+- Ganho: um commit com nome de modelo passa a ser recusado antes do push, em vez de depender de quem escreve a mensagem. Hoje a regra do kit não tem checagem automática.
+- Esforço: P (horas)
+- Status: aberta
