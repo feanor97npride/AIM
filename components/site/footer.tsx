@@ -1,33 +1,67 @@
 import { site } from "@/content/site"
+import { whatsappUrl } from "@/lib/whatsapp"
 
 export function Footer() {
+  const { footer, nav, socials, email, company } = site
+
   return (
-    <footer className="border-t">
-      <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
-        <div>
-          <p className="font-semibold tracking-tight">{site.name}</p>
-          <p className="mt-1 text-sm text-muted-foreground">{site.footer.tagline}</p>
-        </div>
-
-        <nav aria-label="Rodapé" className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
-          {site.nav.map((item) => (
-            <a key={item.href} href={item.href} className="transition-colors hover:text-foreground">
-              {item.label}
+    <footer className="rodape">
+      <div className="wrap">
+        <div className="rodape-grade">
+          <div className="rodape-marca">
+            <a className="marca" href="#inicio">
+              <span className="logo-mark" aria-hidden="true" />
+              {site.name}
             </a>
-          ))}
-          <a href={`mailto:${site.email}`} className="transition-colors hover:text-foreground">
-            {site.email}
-          </a>
-          <a href={site.footer.privacy.href} className="transition-colors hover:text-foreground">
-            {site.footer.privacy.label}
-          </a>
-        </nav>
-      </div>
-
-      <div className="border-t">
-        <p className="mx-auto max-w-6xl px-4 py-6 text-xs text-muted-foreground sm:px-6 lg:px-8">
-          © {new Date().getFullYear()} {site.name}. Todos os direitos reservados.
-        </p>
+            <p>{footer.tagline}</p>
+          </div>
+          <div>
+            <h4>{footer.navTitle}</h4>
+            <ul>
+              {nav.map((item) => (
+                <li key={item.href}>
+                  <a href={item.href}>{item.label}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h4>{footer.contactTitle}</h4>
+            <ul>
+              <li>
+                <a href={whatsappUrl()}>WhatsApp</a>
+              </li>
+              <li>
+                <a href={`mailto:${email}`}>E-mail</a>
+              </li>
+              {socials.map((social) => (
+                <li key={social.label}>
+                  {social.url ? (
+                    <a href={social.url} target="_blank" rel="noopener noreferrer">
+                      {social.label}
+                    </a>
+                  ) : (
+                    <span>{social.label}</span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h4>{footer.legalTitle}</h4>
+            <ul>
+              <li>
+                <a href={footer.privacy.href}>{footer.privacy.label}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="rodape-base">
+          <span>
+            © {new Date().getFullYear()} {site.name}. {company}
+          </span>
+          <span>{footer.notice}</span>
+        </div>
       </div>
     </footer>
   )

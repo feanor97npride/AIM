@@ -1,30 +1,117 @@
+"use client"
+
+import { useEffect, useRef, useState } from "react"
+
 import { Reveal } from "@/components/reveal"
-import { SectionHeading } from "@/components/section-heading"
+import { SplitHeading } from "@/components/split-heading"
 import { site } from "@/content/site"
+import { cn } from "@/lib/utils"
 
+const STATUS_CLASS = ["ok", "now", "todo"] as const
+
+// Etapas do processo. A linha se preenche e o painel de exemplo muda de
+// status conforme a rolagem passa por cada etapa.
 export function Process() {
-  return (
-    <section id="como-funciona" className="scroll-mt-20 py-20 sm:py-28">
-      <div className="mx-auto max-w-6xl space-y-14 px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          eyebrow="Como funciona"
-          title="Do primeiro contato à entrega"
-          description="Um processo com etapas curtas e revisões antes de publicar."
-        />
+  const { process } = site
+  const listRef = useRef<HTMLDivElement>(null)
+  const stepRefs = useRef<Array<HTMLLIElement | null>>([])
+  const [active, setActive] = useState(0)
+  const [lineHeight, setLineHeight] = useState(0)
 
-        <ol className="grid gap-x-8 gap-y-10 md:grid-cols-4">
-          {site.process.map((step, i) => (
-            <li key={step.title} className="h-full">
-              <Reveal delay={i * 100} className="h-full space-y-4 border-t-2 border-foreground/10 pt-6">
-                <span className="font-mono text-sm font-medium text-brand">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="text-lg font-semibold tracking-tight">{step.title}</h3>
-                <p className="text-sm text-muted-foreground">{step.description}</p>
-              </Reveal>
-            </li>
-          ))}
-        </ol>
+  useEffect(() => {
+    let pending = false
+
+    const sync = () => {
+      const vh = window.innerHeight
+      let idx = 0
+      stepRefs.current.forEach((el, i) => {
+        if (el && el.getBoundingClientRect().top < vh * 0.6) idx = i
+      })
+      setActive(idx)
+
+      const list = listRef.current
+      if (list) {
+        const r = list.getBoundingClientRect()
+        const progress = Math.max(0, Math.min(1, (vh * 0.6 - r.top - 20) / Math.max(1, r.height - 40)))
+        setLineHeight(progress * Math.max(0, r.height - 16))
+      }
+    }
+    const onScroll = () => {
+      if (pending) return
+      pending = true
+      requestAnimationFrame(() => {
+        pending = false
+        sync()
+      })
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true })
+    window.addEventListener("resize", onScroll)
+    sync()
+
+    return () => {
+      window.removeEventListener("scroll", onScroll)
+      window.removeEventListener("resize", onScroll)
+    }
+  }, [])
+
+  const total = process.steps.length
+
+  return (
+    <section className="secao" id="como-funciona">
+      <div className="wrap proc">
+        <div>
+          <div className="cabecalho">
+            <span className="etiqueta">{process.label}</span>
+            <SplitHeading>{process.title}</SplitHeading>
+            <Reveal as="p">{process.description}</Reveal>
+          </div>
+
+          <div className="lista-passos" ref={listRef}>
+            <span className="fio" aria-hidden="true" style={{ height: lineHeight }} />
+            <ol>
+              {process.steps.map((step, i) => (
+                <li
+                  key={step.key}
+                  ref={(el) => {
+                    stepRefs.current[i] = el
+                  }}
+                  className={cn("passo", i < active && "feito", i === active && "ativo")}
+                >
+                  <span className="bolha">{i + 1}</span>
+                  <h3>{step.title}</h3>
+                  <p>{step.description}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+
+        <div className="trk" role="img" aria-label={process.tracker.ariaLabel}>
+          <div className="trk-topo">
+            <span>{process.tracker.title}</span>
+            <span>
+              {process.stepLabel} {active + 1} de {total}
+            </span>
+          </div>
+          <div className="trk-barra">
+            <i style={{ width: `${((active + 1) / total) * 100}%` }} />
+          </div>
+          <div className="trk-corpo">
+            <p className="trk-nota">{process.tracker.note}</p>
+            {process.steps.map((step, i) => {
+              const state = i < active ? 0 : i === active ? 1 : 2
+              return (
+                <div key={step.key} className="trk-lin">
+                  <span>{step.key}</span>
+                  <span className={cn("s", STATUS_CLASS[state])}>
+                    {process.tracker.statuses[state]}
+                  </span>
+                </div>
+              )
+            })}
+          </div>
+        </div>
       </div>
     </section>
   )

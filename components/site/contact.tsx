@@ -1,64 +1,48 @@
-import { Mail, MessageCircle } from "lucide-react"
-
-import { Button } from "@/components/ui/button"
+import { Particles } from "@/components/site/particles"
 import { Reveal } from "@/components/reveal"
+import { SplitHeading } from "@/components/split-heading"
 import { site } from "@/content/site"
 import { whatsappUrl } from "@/lib/whatsapp"
 
-// Bloco escuro para o contraste pedido na direção visual.
+// Bloco escuro de contraste, com partículas ao fundo.
 export function Contact() {
-  const { contact } = site
+  const { contact, socials, email } = site
 
   return (
-    <section id="contato" className="scroll-mt-20 bg-foreground py-20 text-background sm:py-28">
-      <Reveal className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl space-y-6">
-          <p className="text-sm font-medium uppercase tracking-widest text-orange-300">
-            {contact.eyebrow}
-          </p>
-          <h2 className="text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
-            {contact.title}
-          </h2>
-          <p className="max-w-xl text-lg text-pretty text-background/75">{contact.description}</p>
+    <section className="wrap fim" id="contato">
+      <div className="cta">
+        <Particles />
+        <SplitHeading>{contact.title}</SplitHeading>
+        <Reveal as="p" className="cta-texto">
+          {contact.description}
+        </Reveal>
+        <div className="acoes">
+          <a className="btn btn-primario" href={whatsappUrl()}>
+            {contact.primaryCta}
+          </a>
+          <a className="btn btn-ghost" href={`mailto:${email}`}>
+            {contact.emailCta}
+          </a>
         </div>
-
-        <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-          <Button asChild variant="brand" size="lg">
-            <a href={whatsappUrl()}>
-              <MessageCircle aria-hidden="true" />
-              {contact.primaryCta}
-            </a>
-          </Button>
-          <Button
-            asChild
-            variant="outline"
-            size="lg"
-            className="border-background/30 bg-transparent text-background hover:bg-background/10 hover:text-background"
-          >
-            <a href={`mailto:${site.email}`}>
-              <Mail aria-hidden="true" />
-              {contact.emailCta}
-            </a>
-          </Button>
-        </div>
-
-        {site.socials.length > 0 && (
-          <ul className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-sm text-background/75">
-            {site.socials.map((social) => (
-              <li key={social.url}>
-                <a
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline-offset-4 hover:text-background hover:underline"
-                >
-                  {social.label}
+        <div className="cta-contatos">
+          <div>
+            <span>{contact.emailLabel}</span>
+            <a href={`mailto:${email}`}>{email}</a>
+          </div>
+          {socials.map((social) => (
+            <div key={social.label}>
+              <span>{social.label}</span>
+              {social.url ? (
+                <a href={social.url} target="_blank" rel="noopener noreferrer">
+                  {social.handle}
                 </a>
-              </li>
-            ))}
-          </ul>
-        )}
-      </Reveal>
+              ) : (
+                <span className="sem-link">{social.handle}</span>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
     </section>
   )
 }

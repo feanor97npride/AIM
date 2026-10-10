@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main id="conteudo">
+      <main id="principal">
         <Hero />
         <Services />
         <Projects />
