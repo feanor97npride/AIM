@@ -29,3 +29,9 @@ Formato de cada entrada:
 - Ganho: nesta entrega, a documentação citava uma pasta (`components/ui`) e um arquivo (`components/section-heading.tsx`) que já tinham sido removidos. Um script assim pega essa divergência antes do envio, em vez de depender de uma busca manual.
 - Esforço: P (horas)
 - Status: aberta
+
+## 2026-10-10 · Studio da Sanity (4a5aaa6)
+- Sugestão: criar `pnpm studio:check`, que roda a checagem de tipos do Studio e os casos das regras de formato de `studio/lib/validacao.ts` (WhatsApp, CNPJ e cor com contraste mínimo), e falha se algum caso mudar de resultado.
+- Ganho: nesta entrega, os 12 casos de formato foram conferidos com um script temporário, fora do repositório. Sem um script no projeto, uma mudança futura numa regra pode quebrar uma validação sem aviso.
+- Esforço: P (horas)
+- Status: aberta
