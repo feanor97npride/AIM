@@ -8,7 +8,7 @@ Estado atual: o site está publicado no Hostinger, a partir da branch `main`. A 
 - **Branch:** `main`. A branch `claude/nifty-turing-sni5k5` não é publicada.
 - **Comando de build:** `pnpm install && pnpm build`. Se o painel não tiver pnpm, use `npm install -g pnpm` antes.
 - **Comando de início:** `pnpm start`. Confira no painel a porta que a plataforma espera.
-- **Variáveis:** `SANITY_PROJECT_ID` (obrigatória) e `SANITY_DATASET` (opcional, padrão `production`), que são o código do projeto e o conjunto de dados da Sanity. Não são segredos, mas ficam no painel da plataforma, não no repositório. Sem `SANITY_PROJECT_ID` o build falha. Detalhes em `project_specs.md`, seção 10.
+- **Variáveis:** `SANITY_PROJECT_ID` (obrigatória) e `SANITY_DATASET` (opcional, padrão `production`), que são o código do projeto e o conjunto de dados da Sanity. Não são segredos, mas ficam no painel da plataforma, não no repositório. Sem `SANITY_PROJECT_ID` o build falha. `SANITY_REVALIDATE_SECRET` é o segredo do webhook de publicação: é um segredo de verdade, fica só no painel da plataforma e precisa ser igual ao configurado no webhook da Sanity. Detalhes em `project_specs.md`, seção 10.
 - **Domínio:** a definir. Hoje o endereço é o gerado pelo Hostinger.
 
 ## Build

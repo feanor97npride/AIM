@@ -10,6 +10,7 @@
     "check:publicacao": "node scripts/check-publicacao.mjs"
   },
   "dependencies": {
+    "@sanity/webhook": "4.0.4",
     "clsx": "^2.1.1",
     "lucide-react": "^0.454.0",
     "next": "16.0.10",

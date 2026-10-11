@@ -89,6 +89,7 @@ Variáveis de ambiente. Nenhuma é segredo, mas ficam no painel da plataforma, n
 |---|---|---|
 | `SANITY_PROJECT_ID` | Código do projeto na Sanity. Sem ela o build falha. | sim |
 | `SANITY_DATASET` | Conjunto de dados. Padrão `production`. | não |
+| `SANITY_REVALIDATE_SECRET` | Segredo do webhook de publicação (`/api/revalidate`). É segredo: só no painel da plataforma, igual ao configurado na Sanity. Sem ele, o webhook responde 500 e o site só atualiza pelo tempo de cache (5 minutos). | sim, para a atualização automática |
 
 Para `pnpm dev`, defina as variáveis em `.env.local`, que não é versionado.
 

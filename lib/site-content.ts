@@ -272,6 +272,9 @@ export function montarSite(c: Conteudo): Site {
 
 const consulta = '*[_id == "siteSettings"][0]'
 
+// Etiqueta do cache das leituras da Sanity. O webhook de publicação revalida por ela.
+export const ETIQUETA_CONTEUDO = "site-content"
+
 // Lê o conteúdo publicado na Sanity. Sem conteúdo, ou se a resposta não bater
 // com o schema, o build falha: não há cópia de reserva (decisão D4).
 export const getSiteContent = cache(async (): Promise<Site> => {
@@ -280,7 +283,7 @@ export const getSiteContent = cache(async (): Promise<Site> => {
   const dataset = process.env.SANITY_DATASET?.trim() || "production"
 
   const url = `https://${projeto}.apicdn.sanity.io/v2025-02-19/data/query/${dataset}?query=${encodeURIComponent(consulta)}`
-  const resposta = await fetch(url, { next: { tags: ["site-content"], revalidate: 300 } })
+  const resposta = await fetch(url, { next: { tags: [ETIQUETA_CONTEUDO], revalidate: 300 } })
   if (!resposta.ok) throw new Error(`Sanity respondeu HTTP ${resposta.status}.`)
 
   const { result } = (await resposta.json()) as { result: unknown }
