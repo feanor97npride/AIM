@@ -53,3 +53,9 @@ Formato de cada entrada:
 - Ganho: nesta entrega, o deploy terminou com a instrução de colocar esse identificador no arquivo para não perguntar de novo. Com a configuração salva, quem administra o projeto publica o Studio com um comando só.
 - Esforço: P (horas)
 - Status: aberta
+
+## 2026-10-11 · Contraste do texto nos cartões azuis (f2d971e)
+- Sugestão: escrever em `app/landing.css`, ao lado do degradê de `.mini-hero`, um comentário com a razão de contraste do fim da cor (5,31 : 1 para `#3D5BF0`, com texto branco), para que uma troca futura de cor não volte a reprovar sem aviso.
+- Ganho: nesta entrega, a cor foi escolhida por cálculo de contraste. Sem um registro no próprio CSS, a próxima troca de cor pode voltar ao 3,06 : 1 que a página tinha antes, sem que ninguém perceba.
+- Esforço: P (horas)
+- Status: aberta
