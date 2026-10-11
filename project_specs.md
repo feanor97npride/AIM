@@ -39,7 +39,7 @@ Não se aplica hoje: o site é público e não tem contas. Planejado: até 3 con
 
 | Tela (rota) | O que entrega | Regras |
 |---|---|---|
-| Página inicial (`/`) | Abertura com demonstração animada, números, serviços, canais, projetos, como funciona e contato | Seções com âncoras `#inicio`, `#servicos`, `#projetos`, `#como-funciona`, `#contato`. Tema claro e escuro pela preferência do sistema. Sem JavaScript ou com movimento reduzido, tudo fica estático e visível. |
+| Página inicial (`/`) | Abertura com demonstração animada, números, serviços, canais, projetos, como funciona e contato | Seções com âncoras `#inicio`, `#servicos`, `#projetos`, `#como-funciona`, `#contato`. Tema claro e escuro pela preferência do sistema. Sem JavaScript, com movimento reduzido ou no celular (sem cursor), tudo fica estático e visível. A animação da abertura só roda em computador com cursor. |
 | Política de privacidade (`/politica-de-privacidade`) | Rascunho com aviso e e-mail de contato | Texto definitivo depende da coleta real de dados. |
 
 Regras de interface: alvos de clique de 44 px ou mais, foco visível, contraste de 4,5:1 medido no DOM, exemplos de projeto sempre rotulados "Exemplo demonstrativo".
