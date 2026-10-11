@@ -47,3 +47,9 @@ Formato de cada entrada:
 - Ganho: nesta entrega, essa comparação, feita à mão, mostrou que o HTML ficou igual ao anterior, exceto os rótulos corrigidos de propósito. Sem um comando, a próxima mudança depende de alguém lembrar de refazer a conferência.
 - Esforço: M (1 a 2 dias)
 - Status: aberta
+
+## 2026-10-11 · Tipos do Node no typecheck do Studio (0b1e41d)
+- Sugestão: registrar `deployment.appId` em `studio/sanity.cli.ts`, com o identificador de app que o `sanity deploy` mostrou ao publicar, para a publicação do Studio não avisar sobre ele a cada vez.
+- Ganho: nesta entrega, o deploy terminou com a instrução de colocar esse identificador no arquivo para não perguntar de novo. Com a configuração salva, quem administra o projeto publica o Studio com um comando só.
+- Esforço: P (horas)
+- Status: aberta
