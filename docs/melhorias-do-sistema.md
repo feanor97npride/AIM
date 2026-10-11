@@ -36,6 +36,12 @@ Formato de cada entrada:
 - Esforço: P (horas)
 - Status: aberta
 
+## 2026-10-11 · Conferência de publicação da Sanity no site (4345952)
+- Sugestão: criar `pnpm publicacao:verificar`, que lê o documento publicado na Sanity, pede o site ao vivo com um parâmetro que evita o cache e informa se o texto bate, com a hora da leitura.
+- Ganho: nesta entrega, a conferência dependeu de capturas de tela. Uma janela normal mostrou um texto antigo que a janela anônima não mostrou, e isso atrasou o diagnóstico. Um script compara as duas fontes sem depender do navegador.
+- Esforço: P (horas)
+- Status: aberta
+
 ## 2026-10-11 · Leitura do conteúdo da Sanity no site (32d70d6)
 - Sugestão: criar `pnpm build:verify-content`, que roda o build contra um servidor de conteúdo de teste, compara o HTML gerado com uma referência guardada e falha se o visual ou os textos mudarem sem querer.
 - Ganho: nesta entrega, essa comparação, feita à mão, mostrou que o HTML ficou igual ao anterior, exceto os rótulos corrigidos de propósito. Sem um comando, a próxima mudança depende de alguém lembrar de refazer a conferência.
