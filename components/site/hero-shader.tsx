@@ -150,7 +150,6 @@ export function HeroShader() {
     }
 
     const draw = (t: number) => {
-      resize()
       gl.uniform2f(U.u_res, canvas.width, canvas.height)
       gl.uniform1f(U.u_time, t)
       gl.uniform2f(U.u_mouse, sx * dpr, canvas.height - sy * dpr)
@@ -176,50 +175,62 @@ export function HeroShader() {
 
     const cleanups: Array<() => void> = []
 
-    if (calmo) {
-      const still = () => draw(14)
-      still()
-      const onChange = () => {
-        readColors()
-        still()
-      }
-      window.addEventListener("resize", still)
-      esquema.addEventListener("change", onChange)
-      cleanups.push(() => {
-        window.removeEventListener("resize", still)
-        esquema.removeEventListener("change", onChange)
-      })
-    } else {
+    // Com movimento reduzido, ou sem cursor (celular), o fundo é desenhado uma vez e a
+    // animação nem começa. Assim o celular não redesenha o shader a cada quadro.
+    const estatico = calmo || !fino
+    const redesenhar = () => {
+      resize()
+      if (estatico) draw(14)
+    }
+    const aoMudarEsquema = () => {
+      readColors()
+      if (estatico) draw(14)
+    }
+    const aoPerderContexto = (e: Event) => {
+      // Sem contexto gráfico, o canvas some e o fundo liso continua legível.
+      e.preventDefault()
+      cancelAnimationFrame(raf)
+      canvas.style.display = "none"
+    }
+
+    redesenhar()
+    const observadorDeTamanho = new ResizeObserver(redesenhar)
+    observadorDeTamanho.observe(canvas)
+    esquema.addEventListener("change", aoMudarEsquema)
+    canvas.addEventListener("webglcontextlost", aoPerderContexto)
+    cleanups.push(() => {
+      observadorDeTamanho.disconnect()
+      esquema.removeEventListener("change", aoMudarEsquema)
+      canvas.removeEventListener("webglcontextlost", aoPerderContexto)
+    })
+
+    if (!estatico) {
       const observer = new IntersectionObserver((entries) => {
         visible = entries[0].isIntersecting
         if (visible && !raf) raf = requestAnimationFrame(frame)
       })
       observer.observe(canvas)
-      esquema.addEventListener("change", readColors)
       cleanups.push(() => {
         observer.disconnect()
-        esquema.removeEventListener("change", readColors)
         if (raf) cancelAnimationFrame(raf)
       })
 
-      if (fino) {
-        const move = (e: Event) => {
-          const ev = e as PointerEvent
-          const r = canvas.getBoundingClientRect()
-          mx = ev.clientX - r.left
-          my = ev.clientY - r.top
-          targetOn = 1
-        }
-        const leave = () => {
-          targetOn = 0
-        }
-        hero.addEventListener("pointermove", move)
-        hero.addEventListener("pointerleave", leave)
-        cleanups.push(() => {
-          hero.removeEventListener("pointermove", move)
-          hero.removeEventListener("pointerleave", leave)
-        })
+      const move = (e: Event) => {
+        const ev = e as PointerEvent
+        const r = canvas.getBoundingClientRect()
+        mx = ev.clientX - r.left
+        my = ev.clientY - r.top
+        targetOn = 1
       }
+      const leave = () => {
+        targetOn = 0
+      }
+      hero.addEventListener("pointermove", move)
+      hero.addEventListener("pointerleave", leave)
+      cleanups.push(() => {
+        hero.removeEventListener("pointermove", move)
+        hero.removeEventListener("pointerleave", leave)
+      })
     }
 
     return () => {
