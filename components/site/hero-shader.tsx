@@ -166,6 +166,8 @@ export function HeroShader() {
     const frame = (now: number) => {
       raf = 0
       if (!visible) return
+      // Trocar de tela pode mudar a densidade sem mudar o tamanho na página: o ResizeObserver não percebe.
+      if (Math.min(window.devicePixelRatio || 1, 1.5) !== dpr) resize()
       sx += (mx - sx) * 0.07
       sy += (my - sy) * 0.07
       on += (targetOn - on) * 0.06
@@ -180,7 +182,9 @@ export function HeroShader() {
     const estatico = calmo || !fino
     const redesenhar = () => {
       resize()
+      // Trocar o tamanho do canvas limpa o desenho: refaz no mesmo quadro, para não piscar.
       if (estatico) draw(14)
+      else if (visible) draw((performance.now() - t0) / 1000)
     }
     const aoMudarEsquema = () => {
       readColors()
