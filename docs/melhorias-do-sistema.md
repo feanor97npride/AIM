@@ -95,3 +95,9 @@ Formato de cada entrada:
 - Ganho: nesta entrega, a medição foi feita com scripts temporários fora do repositório. No ambiente de teste, o ganho de placa de vídeo não apareceu, e isso só se resolve em aparelho real. Um comando no projeto permite repetir a comparação a cada mudança no shader.
 - Esforço: M (1 a 2 dias)
 - Status: aberta
+
+## 2026-10-11 · Conferência da ordem dos títulos (070eb40)
+- Sugestão: criar `pnpm headings:check`, que sobe o site, lista os títulos da página em ordem e falha se algum pular de nível (por exemplo, de `h1` para `h4`).
+- Ganho: nesta entrega, a ordem foi conferida no navegador com um script temporário, fora do repositório. Sem um comando no projeto, um título novo fora de ordem volta sem aviso, e quem usa leitor de tela percebe antes da equipe.
+- Esforço: P (horas)
+- Status: aberta
