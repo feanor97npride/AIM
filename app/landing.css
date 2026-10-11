@@ -253,7 +253,7 @@ h1, h2, h3, h4 { font-family: var(--f-display); font-weight: 700; color: var(--i
 .previa-corpo { padding: 14px; }
 .mini-hero {
   border-radius: 10px; padding: clamp(16px, 2.4vw, 24px); display: grid; gap: 14px; justify-items: start;
-  background: linear-gradient(135deg, #2E4BF0 0%, #6E8CFF 100%); color: #FFFFFF;
+  background: linear-gradient(135deg, #2E4BF0 0%, #3D5BF0 100%); color: #FFFFFF;
 }
 .mini-hero b { font-family: var(--f-display); font-size: clamp(1.1rem, 2vw, 1.5rem); line-height: 1.05; letter-spacing: -0.03em; min-height: 3.2em; }
 .mini-btn { background: #FFFFFF; color: #0A0E22; padding: 7px 13px; border-radius: 999px; font-size: 0.8rem; font-weight: 600; }
