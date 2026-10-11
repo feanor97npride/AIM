@@ -35,3 +35,9 @@ Formato de cada entrada:
 - Ganho: nesta entrega, os 12 casos de formato foram conferidos com um script temporário, fora do repositório. Sem um script no projeto, uma mudança futura numa regra pode quebrar uma validação sem aviso.
 - Esforço: P (horas)
 - Status: aberta
+
+## 2026-10-11 · Leitura do conteúdo da Sanity no site (32d70d6)
+- Sugestão: criar `pnpm build:verify-content`, que roda o build contra um servidor de conteúdo de teste, compara o HTML gerado com uma referência guardada e falha se o visual ou os textos mudarem sem querer.
+- Ganho: nesta entrega, essa comparação, feita à mão, mostrou que o HTML ficou igual ao anterior, exceto os rótulos corrigidos de propósito. Sem um comando, a próxima mudança depende de alguém lembrar de refazer a conferência.
+- Esforço: M (1 a 2 dias)
+- Status: aberta
