@@ -54,7 +54,8 @@ export async function POST(req: Request) {
     return Response.json({ revalidado: false, motivo: "tipo fora do site" })
   }
 
-  revalidateTag(ETIQUETA_CONTEUDO, "max")
+  // Expira na hora. Com "max", o primeiro visitante depois da publicação ainda receberia a página antiga.
+  revalidateTag(ETIQUETA_CONTEUDO, { expire: 0 })
   return Response.json({ revalidado: true })
 }
 
