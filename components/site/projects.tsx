@@ -78,7 +78,7 @@ export function Projects({ site }: { site: Site }) {
                 <Visual visual={item.visual} />
               </div>
               <div className="projeto-corpo">
-                {projects.isDemonstrative && <span className="tag">{projects.tag}</span>}
+                <span className="tag">{projects.tag}</span>
                 <h3>{item.title}</h3>
                 <dl>
                   <div>
