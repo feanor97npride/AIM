@@ -71,3 +71,9 @@ Formato de cada entrada:
 - Ganho: nesta entrega, o assunto ficou escrito no código, enquanto o resto da seção vem do Studio. Quem edita o conteúdo não consegue trocar o assunto, e o rodapé continua sem ele.
 - Esforço: M (1 a 2 dias)
 - Status: aberta
+
+## 2026-10-11 · Interruptor "Exemplo demonstrativo" sem efeito (0051004)
+- Sugestão: remover do Studio o interruptor "Exemplo demonstrativo" (`studio/schemaTypes/siteSettings.ts`, linhas 364-370), o campo `isDemonstrative` em `lib/site-content.ts` e publicar o Studio de novo.
+- Ganho: nesta entrega, a etiqueta passou a aparecer sempre, então o interruptor não muda mais nada na página. Quem edita o conteúdo pode achar que desligá-lo esconde o rótulo, e isso não acontece.
+- Esforço: P (horas)
+- Status: aberta
