@@ -282,7 +282,9 @@ export const getSiteContent = cache(async (): Promise<Site> => {
   if (!projeto) throw new Error("SANITY_PROJECT_ID não está definida.")
   const dataset = process.env.SANITY_DATASET?.trim() || "production"
 
-  const url = `https://${projeto}.apicdn.sanity.io/v2025-02-19/data/query/${dataset}?query=${encodeURIComponent(consulta)}`
+  // API direta, e não a CDN: a CDN pode levar minutos para mostrar uma publicação,
+  // e a página refeita logo após o aviso do webhook guardaria o conteúdo antigo.
+  const url = `https://${projeto}.api.sanity.io/v2025-02-19/data/query/${dataset}?query=${encodeURIComponent(consulta)}`
   const resposta = await fetch(url, { next: { tags: [ETIQUETA_CONTEUDO], revalidate: 300 } })
   if (!resposta.ok) throw new Error(`Sanity respondeu HTTP ${resposta.status}.`)
 

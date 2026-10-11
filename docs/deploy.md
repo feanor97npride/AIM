@@ -17,7 +17,7 @@ Estado atual: o site está publicado no Hostinger, a partir da branch `main`. A 
 - `pnpm build` roda `next build --webpack` e gera `.next` com páginas estáticas (`/`, `/politica-de-privacidade`, `/icon.svg`). O Turbopack falhou no ambiente do Hostinger, por isso o Webpack.
 - `pnpm start` serve o resultado. Rode `pnpm build` antes: o `start` não compila.
 - O `next.config.mjs` define `typescript.ignoreBuildErrors: true`, então o build passa mesmo com erro de tipo. Rode `npx tsc --noEmit` e `pnpm lint` à parte.
-- O build lê o conteúdo publicado do documento `siteSettings` na Sanity, pela API pública (`apicdn.sanity.io`). Precisa de rede até esse endereço. Sem documento publicado, ou com conteúdo fora do schema, o build falha: não há cópia de reserva.
+- O build lê o conteúdo publicado do documento `siteSettings` na Sanity, pela API pública (`api.sanity.io`, sem a CDN, para refletir a publicação na hora). Precisa de rede até esse endereço. Sem documento publicado, ou com conteúdo fora do schema, o build falha: não há cópia de reserva.
 - Para `pnpm dev`, defina `SANITY_PROJECT_ID` em `.env.local`. Esse arquivo não vai para o repositório.
 
 ## Fontes no build
