@@ -59,3 +59,9 @@ Formato de cada entrada:
 - Ganho: nesta entrega, a cor foi escolhida por cálculo de contraste. Sem um registro no próprio CSS, a próxima troca de cor pode voltar ao 3,06 : 1 que a página tinha antes, sem que ninguém perceba.
 - Esforço: P (horas)
 - Status: aberta
+
+## 2026-10-11 · Efeitos de hover só com mouse (93601d5)
+- Sugestão: criar `pnpm hover:check`, que roda o build, lê o CSS gerado e falha se algum seletor com `:hover` estiver fora de `@media (hover: hover)`.
+- Ganho: nesta entrega, a conferência foi feita com um script temporário, fora do repositório. Sem um comando no projeto, uma regra nova de hover escrita fora do bloco volta a aparecer preso no celular sem aviso.
+- Esforço: P (horas)
+- Status: aberta
