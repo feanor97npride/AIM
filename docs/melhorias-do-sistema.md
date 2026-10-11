@@ -83,3 +83,9 @@ Formato de cada entrada:
 - Ganho: nesta entrega, a página de erro cobre só falhas dentro das páginas. Se o layout principal quebrar, o visitante ainda vê a página padrão em inglês do Next.js.
 - Esforço: P (horas)
 - Status: aberta
+
+## 2026-10-11 · Marcação de dados provisórios no Studio (5e4b2a6)
+- Sugestão: no Studio, marcar cada campo provisório (e-mail, WhatsApp, razão social, redes, aviso do rodapé) com uma opção "provisório", e a checagem de publicação usar essa marcação no lugar da lista fixa de padrões.
+- Ganho: nesta entrega, a checagem passou a ler a Sanity, mas ainda depende de uma lista de textos como `seuperfil`. Um dado provisório fora dessa lista passa sem aviso. Com a marcação, a checagem acusa qualquer campo marcado, sem depender do texto.
+- Esforço: M (1 a 2 dias)
+- Status: aberta
