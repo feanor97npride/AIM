@@ -89,3 +89,9 @@ Formato de cada entrada:
 - Ganho: nesta entrega, a checagem passou a ler a Sanity, mas ainda depende de uma lista de textos como `seuperfil`. Um dado provisório fora dessa lista passa sem aviso. Com a marcação, a checagem acusa qualquer campo marcado, sem depender do texto.
 - Esforço: M (1 a 2 dias)
 - Status: aberta
+
+## 2026-10-11 · Medição do shader da abertura (41d46d5)
+- Sugestão: criar `pnpm hero:medir`, que sobe o site, mede quadros desenhados, tempo de script e layouts por segundo no celular e no computador, e compara com a última medição guardada.
+- Ganho: nesta entrega, a medição foi feita com scripts temporários fora do repositório. No ambiente de teste, o ganho de placa de vídeo não apareceu, e isso só se resolve em aparelho real. Um comando no projeto permite repetir a comparação a cada mudança no shader.
+- Esforço: M (1 a 2 dias)
+- Status: aberta
