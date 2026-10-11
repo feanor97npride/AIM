@@ -7,6 +7,7 @@ import { whatsappUrl } from "@/lib/whatsapp"
 // Bloco escuro de contraste, com partículas ao fundo.
 export function Contact({ site }: { site: Site }) {
   const { contact, socials, email } = site
+  const assunto = encodeURIComponent("Quero conversar sobre um projeto")
 
   return (
     <section className="wrap fim" id="contato">
@@ -20,14 +21,14 @@ export function Contact({ site }: { site: Site }) {
           <a className="btn btn-primario" href={whatsappUrl(site.whatsapp.number, site.whatsapp.message)}>
             {contact.primaryCta}
           </a>
-          <a className="btn btn-ghost" href={`mailto:${email}`}>
+          <a className="btn btn-ghost" href={`mailto:${email}?subject=${assunto}`}>
             {contact.emailCta}
           </a>
         </div>
         <div className="cta-contatos">
           <div>
             <span>{contact.emailLabel}</span>
-            <a href={`mailto:${email}`}>{email}</a>
+            <a href={`mailto:${email}?subject=${assunto}`}>{email}</a>
           </div>
           {socials.map((social) => (
             <div key={social.label}>
