@@ -34,7 +34,7 @@ export function Contact({ site }: { site: Site }) {
               <span>{social.label}</span>
               {social.url ? (
                 <a href={social.url} target="_blank" rel="noopener noreferrer">
-                  {social.handle}
+                  {social.handle || social.url.replace(/^https?:\/\//, "")}
                 </a>
               ) : (
                 <span className="sem-link">{social.handle}</span>

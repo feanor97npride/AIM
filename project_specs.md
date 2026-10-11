@@ -15,10 +15,10 @@ O escopo do MVP (landing page e painel administrativo) vem do documento "Projeto
 
 - **Frontend:** Next.js 16 (App Router, páginas estáticas), React 19, TypeScript 5 (`strict`), Tailwind CSS 4. Tema próprio em `app/landing.css` (tokens do HTML de referência). `app/globals.css` faz a ponte com os nomes do shadcn; nenhum componente do shadcn está instalado.
 - **Fontes:** Schibsted Grotesk, Instrument Sans e JetBrains Mono, por `next/font/google`. São baixadas no build e servidas pelo próprio site: o visitante não faz requisição ao Google.
-- **Backend, banco e autenticação:** não existem. Planejados, com escolha entre CMS existente e painel próprio ainda em aberto.
+- **Backend, banco e autenticação:** o site não tem servidor, banco nem login. O conteúdo editável fica na Sanity (plano gratuito), e o site o lê no build. O Studio está em `studio/`, ainda não publicado.
 - **Terceiros:** link `wa.me` do WhatsApp (sem chave, sem API).
 - **Estado no cliente:** estado local em componentes e o hook `hooks/use-reveal.ts`. Sem biblioteca de estado.
-- **Conteúdo:** um único objeto em `content/site.ts`, na estrutura que o painel futuro deve editar.
+- **Conteúdo:** o documento `siteSettings` na Sanity, lido no build por `lib/site-content.ts`. A estrutura que não é editável (destinos do menu, rótulos das redes, compromissos de prazo e valor) fica em `content/fixo.ts`.
 
 ```
 app/            páginas (`/`, `/politica-de-privacidade`), layout, estilos (`landing.css`, `globals.css`), ícone (`icon.svg`)
@@ -83,19 +83,20 @@ Não há testes automatizados. As verificações são scripts e checagens manuai
 
 ## 10. Configuração
 
-Não há variáveis de ambiente hoje e não existe `.env.example`. Os valores editáveis ficam em `content/site.ts`:
+Variáveis de ambiente. Nenhuma é segredo, mas ficam no painel da plataforma, não no repositório. Não existe `.env.example`.
 
-| Valor | Uso | Estado |
+| Variável | Uso | Obrigatória |
 |---|---|---|
-| `whatsapp.number` e `whatsapp.message` | Destino e mensagem dos botões de WhatsApp | placeholder (`5500000000000`) |
-| `email` | E-mail do contato e da política de privacidade | placeholder |
-| `socials` | Instagram e LinkedIn | placeholder, sem endereço |
-| `company` | Razão social e CNPJ no rodapé | placeholder |
-| `name` | Nome exibido | provisório |
+| `SANITY_PROJECT_ID` | Código do projeto na Sanity. Sem ela o build falha. | sim |
+| `SANITY_DATASET` | Conjunto de dados. Padrão `production`. | não |
+
+Para `pnpm dev`, defina as variáveis em `.env.local`, que não é versionado.
+
+O conteúdo editável não é mais um arquivo: vem do documento `siteSettings` na Sanity. Os valores que ainda são placeholder (WhatsApp, e-mail, redes, razão social, CNPJ e nome) são trocados no Studio antes da publicação.
 
 ## 11. Estado e limitações
 
-- **Pendências de conteúdo e operação:** trocar todos os placeholders acima; definir nome e domínio definitivos; substituir os exemplos demonstrativos por casos reais e autorizados; escrever a política de privacidade.
+- **Pendências de conteúdo e operação:** trocar no Studio os placeholders (WhatsApp, e-mail, redes, razão social, CNPJ e nome); definir nome e domínio definitivos; substituir os exemplos demonstrativos por casos reais e autorizados; escrever a política de privacidade.
 - **Não validado no ambiente de desenvolvimento:** WhatsApp real, e-mail real, aparelhos reais, Safari e Firefox, leitor de tela, desempenho em conexão lenta.
 - **Adiado conscientemente:** painel administrativo (depende de escolher CMS ou painel próprio); formulário e métricas (fase 1 do documento do projeto); migração para o ESLint 10, depois de 20/10/2026, quando a configuração 16.4.0 completar duas semanas.
 - **Risco conhecido:** a demonstração do painel na abertura e o número "5 áreas que você edita no painel" falam de um painel que ainda não existe. O bloco está rotulado "Demonstração", e o rodapé avisa que é uma prévia.

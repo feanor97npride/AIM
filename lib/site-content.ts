@@ -69,7 +69,7 @@ const conteudoSchema = z.object({
     row: z.array(z.string()).min(1).max(8),
   }),
   projects: z.object({
-    isDemonstrative: z.boolean(),
+    isDemonstrative: z.boolean().default(true),
     label: z.string(),
     title: z.string(),
     description: z.string(),
@@ -275,9 +275,9 @@ const consulta = '*[_id == "siteSettings"][0]'
 // Lê o conteúdo publicado na Sanity. Sem conteúdo, ou se a resposta não bater
 // com o schema, o build falha: não há cópia de reserva (decisão D4).
 export const getSiteContent = cache(async (): Promise<Site> => {
-  const projeto = process.env.SANITY_PROJECT_ID
+  const projeto = process.env.SANITY_PROJECT_ID?.trim()
   if (!projeto) throw new Error("SANITY_PROJECT_ID não está definida.")
-  const dataset = process.env.SANITY_DATASET ?? "production"
+  const dataset = process.env.SANITY_DATASET?.trim() || "production"
 
   const url = `https://${projeto}.apicdn.sanity.io/v2025-02-19/data/query/${dataset}?query=${encodeURIComponent(consulta)}`
   const resposta = await fetch(url, { next: { tags: ["site-content"], revalidate: 300 } })
