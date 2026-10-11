@@ -65,3 +65,9 @@ Formato de cada entrada:
 - Ganho: nesta entrega, a conferência foi feita com um script temporário, fora do repositório. Sem um comando no projeto, uma regra nova de hover escrita fora do bloco volta a aparecer preso no celular sem aviso.
 - Esforço: P (horas)
 - Status: aberta
+
+## 2026-10-11 · Assunto do e-mail de contato (5308698)
+- Sugestão: trazer o assunto do e-mail de contato para o Studio, como campo de `siteSettings`, e usar esse campo nos dois links da seção de contato e no link "E-mail" do rodapé.
+- Ganho: nesta entrega, o assunto ficou escrito no código, enquanto o resto da seção vem do Studio. Quem edita o conteúdo não consegue trocar o assunto, e o rodapé continua sem ele.
+- Esforço: M (1 a 2 dias)
+- Status: aberta
