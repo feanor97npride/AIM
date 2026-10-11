@@ -77,3 +77,9 @@ Formato de cada entrada:
 - Ganho: nesta entrega, a etiqueta passou a aparecer sempre, então o interruptor não muda mais nada na página. Quem edita o conteúdo pode achar que desligá-lo esconde o rótulo, e isso não acontece.
 - Esforço: P (horas)
 - Status: aberta
+
+## 2026-10-11 · Página de erro para falhas no layout principal (7b4fee8)
+- Sugestão: criar `app/global-error.tsx`, com o mesmo texto e os mesmos botões de `app/error.tsx`, para que uma falha no layout principal também mostre a página em português.
+- Ganho: nesta entrega, a página de erro cobre só falhas dentro das páginas. Se o layout principal quebrar, o visitante ainda vê a página padrão em inglês do Next.js.
+- Esforço: P (horas)
+- Status: aberta
