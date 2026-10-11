@@ -16,7 +16,7 @@ export function Footer({ site }: { site: Site }) {
             <p>{footer.tagline}</p>
           </div>
           <div>
-            <h4>{footer.navTitle}</h4>
+            <h2>{footer.navTitle}</h2>
             <ul>
               {nav.map((item) => (
                 <li key={item.href}>
@@ -26,7 +26,7 @@ export function Footer({ site }: { site: Site }) {
             </ul>
           </div>
           <div>
-            <h4>{footer.contactTitle}</h4>
+            <h2>{footer.contactTitle}</h2>
             <ul>
               <li>
                 <a href={whatsappUrl(site.whatsapp.number, site.whatsapp.message)}>WhatsApp</a>
@@ -48,7 +48,7 @@ export function Footer({ site }: { site: Site }) {
             </ul>
           </div>
           <div>
-            <h4>{footer.legalTitle}</h4>
+            <h2>{footer.legalTitle}</h2>
             <ul>
               <li>
                 <a href={footer.privacy.href}>{footer.privacy.label}</a>

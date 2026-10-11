@@ -116,7 +116,7 @@ export function PanelDemo() {
         </div>
         <div className="painel-principal">
           <div className="painel-topo">
-            <h4>{panel.heading}</h4>
+            <h2>{panel.heading}</h2>
             <span className={cn("st", published ? "st--pub" : "st--rascunho")}>
               {published ? panel.published : panel.draft}
             </span>
@@ -134,7 +134,7 @@ export function PanelDemo() {
                 <small>{panel.ctaField}</small>
                 <span className="valor">{panel.ctaValue}</span>
               </div>
-              <div className="painel-acoes">
+              <div className="painel-acoes" aria-hidden="true">
                 <span className={cn("btn-mini", pulse && "pulse")}>{panel.preview}</span>
                 <span className={cn("btn-mini btn-mini--acento", press && "press")}>
                   {panel.publish}

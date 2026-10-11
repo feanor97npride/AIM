@@ -219,7 +219,7 @@ h1, h2, h3, h4 { font-family: var(--f-display); font-weight: 700; color: var(--i
 }
 .painel-principal { padding: clamp(18px, 3vw, 30px); display: grid; gap: 18px; }
 .painel-topo { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-.painel-topo h4 { font-size: 1.35rem; letter-spacing: -0.02em; }
+.painel-topo h2 { font-size: 1.35rem; letter-spacing: -0.02em; }
 .st { font-size: 0.8rem; font-weight: 600; padding: 5px 12px; border-radius: 999px; transition: background-color 0.4s, color 0.4s; }
 .st--rascunho { background: color-mix(in srgb, var(--warn) 16%, transparent); color: var(--warn); }
 .st--pub { background: color-mix(in srgb, var(--ok) 16%, transparent); color: var(--ok); }
@@ -500,7 +500,7 @@ h1, h2, h3, h4 { font-family: var(--f-display); font-weight: 700; color: var(--i
 .rodape { margin-top: clamp(72px, 9vw, 120px); border-top: 1px solid var(--line); padding: clamp(48px, 6vw, 72px) 0 32px; }
 .rodape-grade { display: grid; gap: 36px; grid-template-columns: 1fr; }
 @media (min-width: 720px) { .rodape-grade { grid-template-columns: 1.6fr 1fr 1fr 1fr; } }
-.rodape-grade h4 { font-size: 0.98rem; font-weight: 600; margin-bottom: 14px; }
+.rodape-grade h2 { font-size: 0.98rem; font-weight: 600; margin-bottom: 14px; }
 .rodape-grade ul { list-style: none; padding: 0; display: grid; gap: 0; }
 .rodape-grade a { display: inline-flex; align-items: center; min-height: 44px; color: var(--muted); text-decoration: none; }
 @media (hover: hover) { .rodape-grade a:hover { color: var(--ink); } }
