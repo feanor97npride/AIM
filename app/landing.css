@@ -315,6 +315,7 @@ h1, h2, h3, h4 { font-family: var(--f-display); font-weight: 700; color: var(--i
 @media (min-width: 900px) {
   .bento { grid-template-columns: repeat(3, 1fr); }
   .bento .card--grande { grid-column: span 2; }
+  .bento .card:last-child { grid-column: 1 / -1; }
 }
 .card {
   background: var(--surface); border: 1px solid var(--line); border-radius: 26px;
