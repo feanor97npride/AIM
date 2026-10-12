@@ -101,3 +101,9 @@ Formato de cada entrada:
 - Ganho: nesta entrega, a ordem foi conferida no navegador com um script temporário, fora do repositório. Sem um comando no projeto, um título novo fora de ordem volta sem aviso, e quem usa leitor de tela percebe antes da equipe.
 - Esforço: P (horas)
 - Status: aberta
+
+## 2026-10-12 · Conferência de quebra de linha no cabeçalho (4500681)
+- Sugestão: criar `pnpm layout:check`, que mede o cabeçalho em uma faixa de larguras (de 390 a 1100 px) e falha se a marca ou algum link quebrar em duas linhas no modo de uma linha.
+- Ganho: nesta entrega, a quebra foi achada numa medição manual de cinco larguras. Uma mudança futura de texto ou de espaçamento pode quebrar o cabeçalho numa largura específica, e sem um comando isso só aparece para quem visita.
+- Esforço: P (horas)
+- Status: aberta
