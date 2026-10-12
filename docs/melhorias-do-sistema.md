@@ -118,4 +118,4 @@ Formato de cada entrada:
 - Sugestão: ajustar a largura do cartão ao lado do grande na faixa de 900 a 1024 px, para que os dois cartões de cima não fiquem tão altos.
 - Ganho: nesta entrega, medi as alturas da grade: em 900 px, os dois cartões de cima chegam a 758 px, e o cartão estreito ao lado tem texto quebrado em muitas linhas. Reduzir a altura deixa a seção mais equilibrada em tablets e notebooks pequenos.
 - Esforço: P (horas)
-- Status: aberta
+- Status: descartada. Testada uma grade de duas colunas entre 900 e 1099 px: em 900 px, a altura caiu de 758 para 691 px, mas de 1000 a 1099 px subiu de cerca de 668 para 710 px. Decisão: manter como está.
