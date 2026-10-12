@@ -113,3 +113,9 @@ Formato de cada entrada:
 - Ganho: nesta entrega, o nome do botão do cabeçalho foi trocado no código, enquanto o botão de contato vem do Studio. Quem edita o conteúdo não consegue mudar o nome do topo, e os dois nomes podem voltar a divergir.
 - Esforço: M (1 a 2 dias)
 - Status: aberta
+
+## 2026-10-12 · Altura dos cartões de serviços em 900 a 1024 px (24bd002)
+- Sugestão: ajustar a largura do cartão ao lado do grande na faixa de 900 a 1024 px, para que os dois cartões de cima não fiquem tão altos.
+- Ganho: nesta entrega, medi as alturas da grade: em 900 px, os dois cartões de cima chegam a 758 px, e o cartão estreito ao lado tem texto quebrado em muitas linhas. Reduzir a altura deixa a seção mais equilibrada em tablets e notebooks pequenos.
+- Esforço: P (horas)
+- Status: aberta
