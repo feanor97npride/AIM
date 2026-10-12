@@ -107,3 +107,9 @@ Formato de cada entrada:
 - Ganho: nesta entrega, a quebra foi achada numa medição manual de cinco larguras. Uma mudança futura de texto ou de espaçamento pode quebrar o cabeçalho numa largura específica, e sem um comando isso só aparece para quem visita.
 - Esforço: P (horas)
 - Status: aberta
+
+## 2026-10-12 · Nome dos botões de WhatsApp no Studio (9c39569)
+- Sugestão: trazer o nome do botão do cabeçalho para o Studio, como campo de `siteSettings`, e usá-lo também no botão de contato, que já vem de lá.
+- Ganho: nesta entrega, o nome do botão do cabeçalho foi trocado no código, enquanto o botão de contato vem do Studio. Quem edita o conteúdo não consegue mudar o nome do topo, e os dois nomes podem voltar a divergir.
+- Esforço: M (1 a 2 dias)
+- Status: aberta
