@@ -16,10 +16,10 @@ export function Header({ site }: { site: Site }) {
         <a
           className="btn btn-primario btn-pequeno btn-header"
           href={whatsappUrl(site.whatsapp.number, site.whatsapp.message)}
-          aria-label="Falar no WhatsApp"
+          aria-label="Conversar no WhatsApp"
         >
           <MessageCircle aria-hidden="true" size={18} className="icone-whats" />
-          <span>Falar no WhatsApp</span>
+          <span>Conversar no WhatsApp</span>
         </a>
       </div>
     </header>
