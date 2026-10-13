@@ -14,7 +14,7 @@ export function NavMenu({ items }: { items: Link[] }) {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) setActive(`#${entry.target.id}`)
+          if (entry.isIntersecting) setActive(entry.target.id === "inicio" ? "" : `#${entry.target.id}`)
         })
       },
       { rootMargin: "-45% 0px -50% 0px" }
@@ -23,6 +23,8 @@ export function NavMenu({ items }: { items: Link[] }) {
       const el = document.getElementById(item.href.slice(1))
       if (el) observer.observe(el)
     })
+    const inicio = document.getElementById("inicio")
+    if (inicio) observer.observe(inicio)
 
     return () => observer.disconnect()
   }, [items])
