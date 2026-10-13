@@ -1,3 +1,4 @@
+import { BackToTop } from "@/components/site/back-to-top"
 import { Contact } from "@/components/site/contact"
 import { Footer } from "@/components/site/footer"
 import { Header } from "@/components/site/header"
@@ -21,6 +22,7 @@ export default async function Home() {
         <Contact site={site} />
       </main>
       <Footer site={site} />
+      <BackToTop />
     </>
   )
 }
