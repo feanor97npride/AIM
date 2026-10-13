@@ -217,6 +217,11 @@ h1, h2, h3, h4 { font-family: var(--f-display); font-weight: 700; color: var(--i
 @media (min-width: 800px) {
   .painel-menu { flex-direction: column; overflow: visible; border-bottom: 0; border-right: 1px solid var(--line); padding: 18px; }
 }
+/* Abaixo de 800 px, as abas rolam na horizontal: a borda direita esmaece para mostrar que há mais.
+   O espaço à direita deixa a última aba fora do esmaecimento quando a lista chega ao fim. */
+@media (max-width: 799px) {
+  .painel-menu { mask-image: linear-gradient(90deg, #000 calc(100% - 40px), transparent); padding-right: 48px; }
+}
 .painel-principal { padding: clamp(18px, 3vw, 30px); display: grid; gap: 18px; }
 .painel-topo { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 .painel-topo h4 { font-size: 1.35rem; letter-spacing: -0.02em; }
