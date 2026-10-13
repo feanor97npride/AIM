@@ -47,3 +47,9 @@ Formato de cada entrada:
 - Ganho: nesta entrega, essa comparação, feita à mão, mostrou que o HTML ficou igual ao anterior, exceto os rótulos corrigidos de propósito. Sem um comando, a próxima mudança depende de alguém lembrar de refazer a conferência.
 - Esforço: M (1 a 2 dias)
 - Status: aberta
+
+## 2026-10-13 · Teste automático do botão "voltar ao topo" (18b9014)
+- Sugestão: criar `pnpm voltar-topo:check`, que sobe o site e confere se o botão aparece depois de exatamente uma altura de tela, se o clique leva a `scrollY = 0`, se o foco vai para a marca e se o contraste e o alvo de 44 px passam.
+- Ganho: nesta entrega, essas medições foram feitas com um roteiro temporário, fora do repositório. Sem um comando do projeto, uma mudança futura no cabeçalho ou no rodapé pode quebrar o botão sem que ninguém perceba. A sobreposição do botão com o fim do rodapé no celular só foi conferida por captura.
+- Esforço: P (horas)
+- Status: aberta
