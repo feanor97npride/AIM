@@ -517,6 +517,7 @@ h1, h2, h3, h4 { font-family: var(--f-display); font-weight: 700; color: var(--i
 .rodape-grade h2 { font-size: 0.98rem; font-weight: 600; margin-bottom: 14px; }
 .rodape-grade ul { list-style: none; padding: 0; display: grid; gap: 0; }
 .rodape-grade a { display: inline-flex; align-items: center; min-height: 44px; color: var(--muted); text-decoration: none; }
+.rodape-grade li > span { display: inline-flex; align-items: center; min-height: 44px; color: var(--muted); }
 @media (hover: hover) { .rodape-grade a:hover { color: var(--ink); } }
 .rodape-marca p { color: var(--muted); margin-top: 14px; max-width: 24em; font-size: 0.97rem; }
 .rodape-marca .marca { margin: 0; }
