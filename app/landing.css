@@ -526,6 +526,19 @@ h1, h2, h3, h4 { font-family: var(--f-display); font-weight: 700; color: var(--i
   display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between; color: var(--muted); font-size: 0.88rem;
 }
 
+/* Voltar ao topo: só a seta, aparece depois de uma tela de rolagem (ver back-to-top.tsx) */
+.voltar-topo {
+  position: fixed; right: max(16px, env(safe-area-inset-right, 0px)); bottom: max(16px, env(safe-area-inset-bottom, 0px));
+  z-index: 30; display: grid; place-items: center; width: 52px; height: 52px; padding: 0;
+  border: 0; border-radius: 50%; background: var(--accent); color: var(--accent-ink); cursor: pointer;
+  box-shadow: var(--shadow);
+  opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s, background-color 0.25s, color 0.25s;
+}
+.voltar-topo.on { opacity: 1; visibility: visible; }
+@media (hover: hover) { .voltar-topo:hover { background: var(--ink); color: var(--bg); } }
+/* No celular, o botão cobre o fim da última linha do rodapé: o espaço extra deixa o texto livre */
+@media (max-width: 719px) { .rodape { padding-bottom: 84px; } }
+
 /* Página simples (política de privacidade) */
 .pagina { padding: clamp(72px, 10vw, 140px) 0 0; }
 .pagina h1 { font-weight: 800; font-size: clamp(2.5rem, 6vw, 4.8rem); line-height: 0.98; letter-spacing: -0.045em; text-wrap: balance; }
@@ -552,5 +565,5 @@ h1, h2, h3, h4 { font-family: var(--f-display); font-weight: 700; color: var(--i
   .trilho { width: auto; flex-wrap: wrap; }
   .canais { -webkit-mask-image: none; mask-image: none; }
   .trilho .grupo[aria-hidden="true"] { display: none; }
-  .btn, .btn-primario::after, .passo h3, .bolha, .trk-barra i, .projeto-visual .web { transition: none; }
+  .btn, .btn-primario::after, .passo h3, .bolha, .trk-barra i, .projeto-visual .web, .voltar-topo { transition: none; }
 }
