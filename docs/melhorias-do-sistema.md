@@ -119,3 +119,9 @@ Formato de cada entrada:
 - Ganho: nesta entrega, medi as alturas da grade: em 900 px, os dois cartões de cima chegam a 758 px, e o cartão estreito ao lado tem texto quebrado em muitas linhas. Reduzir a altura deixa a seção mais equilibrada em tablets e notebooks pequenos.
 - Esforço: P (horas)
 - Status: descartada. Testada uma grade de duas colunas entre 900 e 1099 px: em 900 px, a altura caiu de 758 para 691 px, mas de 1000 a 1099 px subiu de cerca de 668 para 710 px. Decisão: manter como está.
+
+## 2026-10-13 · Teste automático do destaque do menu (0db2d0b)
+- Sugestão: criar `pnpm nav:check`, que sobe o site, rola até cada seção com rolagem instantânea e confere qual item do menu fica destacado, inclusive ao voltar ao topo.
+- Ganho: nesta entrega, o destaque errado foi achado numa captura manual. A primeira medição também deu resultado falso, porque o site usa rolagem animada e o teste não esperou o fim da animação. Um comando do projeto já cuidaria disso, e pegaria a regressão antes do visitante.
+- Esforço: P (horas)
+- Status: aberta
