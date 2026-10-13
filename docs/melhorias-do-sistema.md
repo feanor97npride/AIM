@@ -155,3 +155,9 @@ Formato de cada entrada:
 - Ganho: nesta entrega, essas medições foram feitas com um roteiro temporário, fora do repositório. Sem um comando do projeto, uma mudança futura no cabeçalho ou no rodapé pode quebrar o botão sem que ninguém perceba. A sobreposição do botão com o fim do rodapé no celular só foi conferida por captura.
 - Esforço: P (horas)
 - Status: aberta
+
+## 2026-10-13 · Teste automático da rolagem das abas do painel no celular (0d63ab5)
+- Sugestão: criar um teste que, em 390 px, confere se a borda direita da lista de abas esmaece no início, se a última aba fica inteira ao fim da rolagem e se nada esmaece em 700 e 800 px.
+- Ganho: nesta entrega, a primeira versão esmaecia a última aba no fim da lista e também em 700 px, onde a lista nem rola. Só a medição no navegador mostrou isso, e a correção foi feita antes do commit. Um teste no projeto pegaria a mesma regressão em mudanças futuras.
+- Esforço: P (horas)
+- Status: aberta
