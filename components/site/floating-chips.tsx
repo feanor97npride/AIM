@@ -26,14 +26,14 @@ const chips: Chip[] = [
     text: "Nova conversa no WhatsApp",
     depth: 28,
     delay: "0s",
-    position: { left: "4%", top: "22%" },
+    position: { left: "4%", top: "10%" },
     icon: <path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z" />,
   },
   {
     text: "Prévia conferida no celular",
     depth: -20,
     delay: "-2.4s",
-    position: { right: "4%", top: "16%" },
+    position: { right: "4%", top: "10%" },
     icon: (
       <>
         <rect x="7" y="2.5" width="10" height="19" rx="2.5" />
@@ -45,7 +45,7 @@ const chips: Chip[] = [
     text: "Rascunho salvo",
     depth: 38,
     delay: "-4.2s",
-    position: { left: "8%", top: "62%" },
+    position: { left: "8%", top: "68%" },
     icon: (
       <>
         <path d="M6 3h8l4 4v14H6z" />
@@ -57,7 +57,7 @@ const chips: Chip[] = [
     text: "Versão publicada",
     depth: -34,
     delay: "-1.2s",
-    position: { right: "7%", top: "60%" },
+    position: { right: "7%", top: "68%" },
     icon: (
       <>
         <circle cx="12" cy="12" r="9" />
