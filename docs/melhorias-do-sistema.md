@@ -143,3 +143,9 @@ Formato de cada entrada:
 - Ganho: nesta entrega, o cartão ficou com texto à esquerda e visual à direita, mas os chips continuam alinhados à esquerda dentro da caixa do visual, com espaço vazio à direita. Centralizar fecha a composição.
 - Esforço: P (horas)
 - Status: aberta
+
+## 2026-10-13 · Estilo único para os itens do rodapé (7d85990)
+- Sugestão: usar um único estilo para os itens do rodapé, com ou sem endereço, em vez de duas regras separadas para links e textos.
+- Ganho: nesta entrega, o estilo dos itens sem endereço ficou numa regra à parte. Quando Instagram e LinkedIn ganharem endereço, as duas regras precisam ser mantidas em sintonia.
+- Esforço: P (horas)
+- Status: aberta
