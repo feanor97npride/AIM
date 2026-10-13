@@ -379,6 +379,12 @@ h1, h2, h3, h4 { font-family: var(--f-display); font-weight: 700; color: var(--i
 .projeto dl { display: grid; gap: 12px; margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line); }
 .projeto dt { font-weight: 600; font-size: 0.95rem; }
 .projeto dd { margin: 2px 0 0; color: var(--muted); font-size: 0.94rem; }
+@media (min-width: 900px) {
+  .projetos-grade { grid-template-rows: auto 1fr; }
+  .projeto { display: grid; grid-template-rows: subgrid; grid-row: span 2; row-gap: 0; }
+  .projeto-visual { display: flex; flex-direction: column; }
+  .projeto-visual .web { flex: 1; }
+}
 
 /* Chamada para o WhatsApp entre seções */
 .cta-meio {
