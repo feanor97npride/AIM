@@ -9,9 +9,6 @@
     "start": "next start",
     "check:publicacao": "node scripts/check-publicacao.mjs"
   },
-  "pnpm": {
-    "onlyBuiltDependencies": ["sharp", "unrs-resolver"]
-  },
   "dependencies": {
     "@sanity/webhook": "4.0.4",
     "clsx": "^2.1.1",
