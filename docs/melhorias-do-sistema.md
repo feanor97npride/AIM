@@ -125,3 +125,9 @@ Formato de cada entrada:
 - Ganho: nesta entrega, o destaque errado foi achado numa captura manual. A primeira medição também deu resultado falso, porque o site usa rolagem animada e o teste não esperou o fim da animação. Um comando do projeto já cuidaria disso, e pegaria a regressão antes do visitante.
 - Esforço: P (horas)
 - Status: aberta
+
+## 2026-10-13 · Teste de sobreposição da abertura com os elementos reais (11c89d6)
+- Sugestão: criar `pnpm hero:check`, que confere se os chips flutuantes cruzam o título, o texto e os botões reais, e não os blocos que os contêm.
+- Ganho: nesta entrega, o teste por blocos acusou sobreposições que não existem visualmente, e cada caso precisou ser conferido à mão nas capturas. Medir os elementos reais evita esse trabalho e continua pegando sobreposições de verdade.
+- Esforço: P (horas)
+- Status: aberta
