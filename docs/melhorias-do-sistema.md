@@ -137,3 +137,9 @@ Formato de cada entrada:
 - Ganho: nesta entrega, o alinhamento foi medido com um script temporário, fora do repositório. Sem um comando no projeto, uma mudança futura no conteúdo de um visual pode desalinhar os cartões sem que ninguém perceba.
 - Esforço: P (horas)
 - Status: aberta
+
+## 2026-10-13 · Chips centralizados no visual de Presença digital (01b9208)
+- Sugestão: centralizar os chips dentro do visual do cartão "Presença digital" em telas de 900 px ou mais.
+- Ganho: nesta entrega, o cartão ficou com texto à esquerda e visual à direita, mas os chips continuam alinhados à esquerda dentro da caixa do visual, com espaço vazio à direita. Centralizar fecha a composição.
+- Esforço: P (horas)
+- Status: aberta
