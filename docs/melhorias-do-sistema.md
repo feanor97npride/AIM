@@ -131,3 +131,9 @@ Formato de cada entrada:
 - Ganho: nesta entrega, o teste por blocos acusou sobreposições que não existem visualmente, e cada caso precisou ser conferido à mão nas capturas. Medir os elementos reais evita esse trabalho e continua pegando sobreposições de verdade.
 - Esforço: P (horas)
 - Status: aberta
+
+## 2026-10-13 · Teste de alinhamento dos cartões de projeto (6d19617)
+- Sugestão: criar `pnpm projetos:check`, que mede a altura dos visuais e a posição das etiquetas e títulos dos três cartões em 900, 1024 e 1440 px, e falha se alguma diferença passar de 1 px.
+- Ganho: nesta entrega, o alinhamento foi medido com um script temporário, fora do repositório. Sem um comando no projeto, uma mudança futura no conteúdo de um visual pode desalinhar os cartões sem que ninguém perceba.
+- Esforço: P (horas)
+- Status: aberta
